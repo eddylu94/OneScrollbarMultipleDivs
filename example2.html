@@ -1,30 +1,29 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Example 1</title>
+	<title>Example 2</title>
 	<meta charset="utf-8" />
 	<style>
 		#frame {
 			height: 500px;
 			overflow-y: scroll;
 		}
-		
+
 		#container {
-			height: 2500px;
+			height: 6060px;
 		}
 
 		#exampleDivs {
 			position: fixed;
-			
+
 			display: flex;
 			flex-direction: row;
 		}
 
 		.example_div {
 			margin-right: 20px;
+			height: 500px;
 
-			display: flex;
-			flex-direction: column;
 			box-sizing: border-box;
 			width: 200px;
 			padding: 10px;
@@ -32,36 +31,36 @@
 
 			font-family: Calibri;
 			font-size: 20px;
-			
+
 			color: #FFFFFF;
 		}
 
 		#div_a {
-			height: 500px;
+			line-height: 60px;
 
 			background-color: #000000;
 		}
 
 		#div_b {
-			height: 400px;
+			line-height: 50px;
 
 			background-color: #222222;
 		}
 
 		#div_c {
-			height: 300px;
+			line-height: 40px;
 
 			background-color: #444444;
 		}
 
 		#div_d {
-			height: 200px;
+			line-height: 30px;
 
 			background-color: #666666;
 		}
 
 		#div_e {
-			height: 100px;
+			line-height: 20px;
 
 			background-color: #888888;
 		}
@@ -75,7 +74,7 @@
 		var frameId = "frame";
 	</script>
 
-	<div id="frame" onscroll="proportionalScroll(divs, frameId, containerId);">
+	<div id="frame" onscroll="scrollThenFix(divs, frameId, containerId);">
 		<div id="container">
 			<div id="exampleDivs">
 				<div class="example_div" id="div_a"></div>
@@ -86,9 +85,9 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<script>
-		var populateDiv = function(id) {
+		var populateDiv = function (id) {
 			var divElement = document.getElementById(id);
 			var text = "1";
 			for (var i = 2; i <= 100; i++) {
