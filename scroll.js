@@ -63,7 +63,24 @@ var scrollThenFix = function (divIds, placeholderDivs, frameId) {
 
 			placeholderDiv.style.display = "none";
 		}
+	}
+}
 
-		currentDiv.scrollTop = frame_scrollTop;
+var scrollThenChangeTop = function (divIds, frameId) {
+	var frame = document.getElementById(frameId);
+	var frame_scrollTop = frame.scrollTop;
+	var frame_clientHeight = frame.clientHeight;
+
+	for (var i = 0; i < divIds.length; i++) {
+
+		var currentDiv = document.getElementById(divIds[i]);
+		var currentDiv_clientHeight = currentDiv.clientHeight;
+
+		if (frame_scrollTop > currentDiv_clientHeight - frame_clientHeight) {
+			currentDiv.style.top = (frame_scrollTop - (currentDiv_clientHeight - frame_clientHeight)) + "px";
+		}
+		else {
+			currentDiv.style.top = 0 + "px";
+		}
 	}
 }
